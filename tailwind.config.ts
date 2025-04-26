@@ -9,8 +9,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        coral: {
+          500: "#FF6B6B",
+          600: "#E65C5C",
+        },
       },
     },
   },

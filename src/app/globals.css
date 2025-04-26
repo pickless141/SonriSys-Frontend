@@ -3,19 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-geist-sans: "Geist", sans-serif;
+    --font-geist-mono: "Geist Mono", monospace;
+    --font-roboto-mono: "Roboto Mono", monospace;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  
+  .roboto-mono {
+    font-family: var(--font-roboto-mono);
+  }
+  
+  .roboto-mono-bold {
+    font-family: var(--font-roboto-mono);
+    font-weight: 700;
+  }
+  
+  .roboto-mono-light {
+    font-family: var(--font-roboto-mono);
+    font-weight: 300;
+  }
