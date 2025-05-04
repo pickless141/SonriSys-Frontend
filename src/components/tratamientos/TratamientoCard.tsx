@@ -8,7 +8,6 @@ import {
   DialogActions,
   Button,
   Tooltip,
-  Typography,
   IconButton,
   Menu,
   MenuItem

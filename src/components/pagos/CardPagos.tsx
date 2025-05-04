@@ -6,9 +6,6 @@ import {
   Avatar,
   Card,
   Typography,
-  Box,
-  Stack,
-  Dialog,
 } from '@mui/material';
 import { MonetizationOn } from '@mui/icons-material';
 import TablaPagos from './TablaPagos';

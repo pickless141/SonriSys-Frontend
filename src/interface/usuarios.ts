@@ -22,8 +22,5 @@ export interface EditarUsuarioRequest {
     rol?: 'admin' | 'usuario';
     estado?: boolean;
 }
-  
-export interface ResetearIntentosRequest {
-    // si se desea extender en el futuro
-}
+
 

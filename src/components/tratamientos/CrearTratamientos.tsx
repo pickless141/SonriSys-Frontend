@@ -29,7 +29,7 @@ interface CrearTratamientoDialogProps {
 const CrearTratamientoDialog: React.FC<CrearTratamientoDialogProps> = ({ open, onClose }) => {
   const agregarTratamiento = useTratamientoStore((state) => state.agregarTratamiento);
   const { pacientesSelect, cargarPacientesSelect } = usePacienteStore();
-  const { tratamientos, cargarTratamientos } = useTratamientoStore();
+  const { cargarTratamientos } = useTratamientoStore();
 
   const [selectedPaciente, setSelectedPaciente] = useState<string>("");
   const [fechaInicio, setFechaInicio] = useState<string>("");

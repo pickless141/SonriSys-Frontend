@@ -20,7 +20,6 @@ import {
 import { MoreVert, Person } from "@mui/icons-material";
 import EditarPaciente from "./EditarPaciente";
 import HistorialMedicoModal from "./HistorialMedico";
-import { getHistorialPDF } from "@/api/historialPDFApi";
 import { useHistorialPDFStore } from "@/store/historialPDFStore";
 import HistorialPDFDialog from "./HistorialPDFDialog";
 
@@ -72,7 +71,7 @@ export default function PacienteCard({
       setConfirmDialogOpen(false);
       setSnackbarMessage(`Paciente ${paciente.nombreCompleto} eliminado correctamente`);
       setSnackbarOpen(true);
-    } catch (error) {
+    } catch {
       setSnackbarMessage("Error al eliminar el paciente");
       setSnackbarOpen(true);
     }

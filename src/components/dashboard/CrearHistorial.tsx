@@ -23,7 +23,7 @@ import {
 } from "@mui/material";
 
 type IndexedObject = {
-  [key: string]: any;
+  [key: string]: boolean | string;
 };
 
 function YesNoQuestion({

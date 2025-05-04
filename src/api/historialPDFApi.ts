@@ -1,4 +1,5 @@
 import axios from "axios";
+import { handleAxiosError } from "@/utils/handleAxiosError"; 
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -9,7 +10,7 @@ export const getHistorialPDF = async (pacienteId: string): Promise<Blob> => {
       responseType: "blob", 
     });
     return response.data;
-  } catch (error: any) {
-    throw new Error(error.response?.data?.mensaje || "Error al obtener el PDF del historial");
+  } catch (error) {
+    return handleAxiosError(error as unknown, "Error al obtener el PDF del historial");
   }
 };

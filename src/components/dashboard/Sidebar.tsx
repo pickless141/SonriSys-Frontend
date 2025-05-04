@@ -10,7 +10,7 @@ import { useAuthStore } from "@/store/authStore";
 export default function Sidebar() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const { user } = useAuthStore(); // obtenemos el usuario autenticado
+  const { user } = useAuthStore(); 
 
   const toggleSidebar = () => {
     setIsMinimized(!isMinimized);
@@ -22,14 +22,12 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Botón hamburguesa mobile */}
       <div className="md:hidden fixed top-4 left-4 z-50">
         <IconButton onClick={toggleMobileSidebar} className="text-white bg-coral-500 hover:bg-coral-600">
           <Menu />
         </IconButton>
       </div>
 
-      {/* Sidebar Desktop */}
       <aside
         className={clsx(
           "h-screen bg-coral-500 text-white flex flex-col transition-all duration-300 ease-in-out z-40",
@@ -58,7 +56,6 @@ export default function Sidebar() {
             {!isMinimized && "Pagos"}
           </Link>
 
-          {/* Sólo para admin */}
           {user?.rol === "admin" && (
             <Link href="/dashboard/usuarios" className={clsx("flex items-center gap-2 py-2 px-4 rounded-md hover:bg-coral-600", isMinimized && "justify-center")}>
               {!isMinimized && "Usuarios"}
@@ -67,13 +64,11 @@ export default function Sidebar() {
         </nav>
       </aside>
 
-      {/* Overlay al abrir sidebar en mobile */}
       <div
         className={clsx("fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity", isMobileOpen ? "opacity-100 visible" : "opacity-0 invisible")}
         onClick={toggleMobileSidebar}
       ></div>
 
-      {/* Sidebar Mobile */}
       <aside
         className={clsx("fixed top-0 left-0 h-full bg-coral-500 text-white flex flex-col transition-transform duration-300 ease-in-out z-50 md:hidden", isMobileOpen ? "translate-x-0" : "-translate-x-full", "w-64")}
       >
@@ -98,7 +93,6 @@ export default function Sidebar() {
             Pagos
           </Link>
 
-          {/* Solo admin */}
           {user?.rol === "admin" && (
             <Link href="/dashboard/usuarios" className="block py-2 px-4 rounded-md hover:bg-coral-600" onClick={toggleMobileSidebar}>
               Usuarios

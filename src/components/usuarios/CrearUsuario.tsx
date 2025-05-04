@@ -17,11 +17,12 @@ import { CrearUsuarioRequest } from "@/interface/usuarios";
 interface Props {
   open: boolean;
   onClose: () => void;
+  setSnackbarMessage: (message: string) => void;
 }
 
 const roles = ["admin", "usuario"];
 
-const CrearUsuarioDialog = ({ open, onClose }: Props) => {
+const CrearUsuarioDialog = ({ open, onClose, setSnackbarMessage }: Props) => {
   const { agregarUsuario } = useUsuarioStore();
 
   const [form, setForm] = useState<CrearUsuarioRequest>({
@@ -37,8 +38,9 @@ const CrearUsuarioDialog = ({ open, onClose }: Props) => {
 
   const handleCrear = async () => {
     await agregarUsuario(form);
+    setSnackbarMessage("✅ Usuario creado correctamente");
     onClose();
-    setForm({ nombre: "", email: "", password: "", rol: "usuario" }); // reset
+    setForm({ nombre: "", email: "", password: "", rol: "usuario" }); 
   };
 
   return (

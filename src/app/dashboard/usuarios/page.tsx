@@ -71,6 +71,7 @@ export default function UsuariosPage() {
       <CrearUsuario
         open={openCrear}
         onClose={handleCloseCrear}
+        setSnackbarMessage={handleShowSnackbar}
       />
 
       <Snackbar

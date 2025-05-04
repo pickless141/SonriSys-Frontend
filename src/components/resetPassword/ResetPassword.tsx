@@ -4,7 +4,6 @@ import { useState } from "react";
 import { TextField, Button, IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useAuthStore } from "@/store/authStore";
-import { useRouter } from "next/navigation";
 
 export default function ResetPassword({ email, onBack }: { email: string; onBack: () => void }) {
   const [resetCode, setResetCode] = useState("");
@@ -13,7 +12,6 @@ export default function ResetPassword({ email, onBack }: { email: string; onBack
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const resetPassword = useAuthStore((state) => state.resetPassword);
-  const router = useRouter();
 
   const handleReset = async () => {
     try {
@@ -23,8 +21,12 @@ export default function ResetPassword({ email, onBack }: { email: string; onBack
       setTimeout(() => {
         onBack();
       }, 2000);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Ocurrió un error inesperado al restablecer la contraseña.");
+      }
     }
   };
 

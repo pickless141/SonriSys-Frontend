@@ -15,8 +15,6 @@ import {
   ListItem,
   ListItemText,
   Box,
-  Tooltip,
-  IconButton
 } from "@mui/material";
 import CrearHistorial from "@/components/dashboard/CrearHistorial";
 import { HistorialMedico } from "@/interface/HistorialMedico";

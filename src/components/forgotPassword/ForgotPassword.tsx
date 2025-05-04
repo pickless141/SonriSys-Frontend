@@ -15,11 +15,15 @@ export default function ForgotPassword({ onBack, onReset }: { onBack: () => void
       await forgotPassword(email);
       setMessage("Código de verificación enviado a tu correo. Revísalo y sigue las instrucciones.");
       setTimeout(() => {
-        onReset(email); // ✅ Cambia a ResetPassword en LoginPage.tsx
+        onReset(email); 
       }, 3000);
-    } catch (error: any) {
-      setError(error.message);
-    }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError("Error inesperado al enviar el código.");
+      }
+    }    
   };
 
   return (

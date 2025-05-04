@@ -87,7 +87,6 @@ const CitasCard: React.FC<CitasCardProps> = ({
 
   const handleEstadoChange = (
     event: SelectChangeEvent<"PENDIENTE" | "RE-AGENDADO" | "COMPLETADO" | "CANCELADO">,
-    child: React.ReactNode
   ) => {
     if (onActualizarEstado) {
       onActualizarEstado(cita._id, {
